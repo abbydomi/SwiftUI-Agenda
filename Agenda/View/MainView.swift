@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct EventPresentationModel: Identifiable {
-    let id = UUID()
-    let name: String
-    let date: Int
-}
-
 struct MainView: View {
     
     @State var events: [EventPresentationModel] = []

@@ -24,7 +24,7 @@ class SignUpViewModel: ObservableObject {
             errorContent = "Password cannot be empty"
             return
         }
-        if password.count <= 6 {
+        if password.count < 6 {
             showAlert = true
             errorContent = "Password cannot be shorter than 6 characters"
             return

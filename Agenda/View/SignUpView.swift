@@ -28,7 +28,7 @@ struct SignUpView: View {
                     .textInputAutocapitalization(TextInputAutocapitalization.never)
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
                     .placeholder(when: email.isEmpty) {
-                       Text("Username")
+                        Text("Username")
                             .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
                             .padding(10)
                     }
@@ -36,18 +36,18 @@ struct SignUpView: View {
                     .padding(10)
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
                     .placeholder(when: password.isEmpty) {
-                   Text("Password")
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
-                        .padding(10)
-                }
+                        Text("Password")
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .padding(10)
+                    }
                 SecureField("Repeat password", text: $password2)
                     .padding(10)
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
                     .placeholder(when: password2.isEmpty) {
-                   Text("Repeat password")
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
-                        .padding(10)
-                }
+                        Text("Repeat password")
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .padding(10)
+                    }
             }
             .background(Color(uiColor: UIColor(named: "ColorMonoLight")!))
             .cornerRadius(18)
@@ -73,23 +73,21 @@ struct SignUpView: View {
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
             }
             .alert(isPresented: $vm.showAlert) {
-                    Alert(
-                        title: Text("Oops!"),
-                        message: Text(vm.errorContent)
-                    )
+                Alert(
+                    title: Text("Oops!"),
+                    message: Text(vm.errorContent)
+                )
             }
             .onChange(of: vm.dismiss) { newValue in
                 if newValue == true{
                     dismiss()
                 }
             }
-
+            
         }
         .background(Color(uiColor: UIColor(named: "ColorPrimary")!))
         .navigationBarBackButtonHidden(true)
     }
-    
-    
 }
 
 struct SignUpView_Previews: PreviewProvider {

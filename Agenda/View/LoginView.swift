@@ -17,14 +17,14 @@ struct LoginView: View {
             VStack {
                 Text("Login")
                     .font(.system(size: 60, weight: .bold))
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.yellow))
                     .padding(20)
                 Spacer()
                 VStack(spacing: 20) {
                     TextField("Username", text: $email)
                         .placeholder(when: email.isEmpty, placeholder: {
                             Text("Username")
-                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         })
                         .padding(10)
                         .autocorrectionDisabled()
