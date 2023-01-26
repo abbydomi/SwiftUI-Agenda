@@ -9,18 +9,21 @@
 /* Begin PBXBuildFile section */
 		2807F07929799B1000752BDD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807F07829799B1000752BDD /* MainView.swift */; };
 		2838AE31297B1CB400320589 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838AE30297B1CB400320589 /* CreateEventView.swift */; };
+		2845F73D298302C300236405 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2845F73C298302C300236405 /* LoginViewModel.swift */; };
+		28B8212B298304E100BCFE83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8212A298304E100BCFE83 /* Extensions.swift */; };
 		28D274E22975D1B900E2CA16 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D274E12975D1B900E2CA16 /* NetworkHelper.swift */; };
 		28DB569E2982CA2300926BA5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB569D2982CA2300926BA5 /* DetailView.swift */; };
 		28E658C329708E3600B236A5 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E658C229708E3600B236A5 /* SignUpView.swift */; };
 		28F04B6F296C9F2A00A27CAD /* AgendaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F04B6E296C9F2A00A27CAD /* AgendaApp.swift */; };
 		28F04B71296C9F2A00A27CAD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F04B70296C9F2A00A27CAD /* LoginView.swift */; };
 		28F04B73296C9F2B00A27CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F04B72296C9F2B00A27CAD /* Assets.xcassets */; };
-		28F04B76296C9F2B00A27CAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F04B75296C9F2B00A27CAD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2807F07829799B1000752BDD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2838AE30297B1CB400320589 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
+		2845F73C298302C300236405 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		28B8212A298304E100BCFE83 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		28D274E12975D1B900E2CA16 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		28DB569D2982CA2300926BA5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		28E658C229708E3600B236A5 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -28,7 +31,6 @@
 		28F04B6E296C9F2A00A27CAD /* AgendaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaApp.swift; sourceTree = "<group>"; };
 		28F04B70296C9F2A00A27CAD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		28F04B72296C9F2B00A27CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28F04B75296C9F2B00A27CAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2845F73E298302FB00236405 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2845F73C298302C300236405 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2845F73F2983030700236405 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28F04B70296C9F2A00A27CAD /* LoginView.swift */,
+				2807F07829799B1000752BDD /* MainView.swift */,
+				28DB569D2982CA2300926BA5 /* DetailView.swift */,
+				2838AE30297B1CB400320589 /* CreateEventView.swift */,
+				28E658C229708E3600B236A5 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		28B8212C2983050300BCFE83 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				28B8212A298304E100BCFE83 /* Extensions.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
 		28D274E32975D1C000E2CA16 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,25 +99,14 @@
 		28F04B6D296C9F2A00A27CAD /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
-				28D274E32975D1C000E2CA16 /* Data */,
 				28F04B6E296C9F2A00A27CAD /* AgendaApp.swift */,
-				28F04B70296C9F2A00A27CAD /* LoginView.swift */,
-				2807F07829799B1000752BDD /* MainView.swift */,
-				28DB569D2982CA2300926BA5 /* DetailView.swift */,
-				2838AE30297B1CB400320589 /* CreateEventView.swift */,
-				28E658C229708E3600B236A5 /* SignUpView.swift */,
 				28F04B72296C9F2B00A27CAD /* Assets.xcassets */,
-				28F04B74296C9F2B00A27CAD /* Preview Content */,
+				2845F73F2983030700236405 /* View */,
+				2845F73E298302FB00236405 /* ViewModel */,
+				28D274E32975D1C000E2CA16 /* Data */,
+				28B8212C2983050300BCFE83 /* Extras */,
 			);
 			path = Agenda;
-			sourceTree = "<group>";
-		};
-		28F04B74296C9F2B00A27CAD /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				28F04B75296C9F2B00A27CAD /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +167,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28F04B76296C9F2B00A27CAD /* Preview Assets.xcassets in Resources */,
 				28F04B73296C9F2B00A27CAD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,8 +182,10 @@
 				28F04B71296C9F2A00A27CAD /* LoginView.swift in Sources */,
 				28E658C329708E3600B236A5 /* SignUpView.swift in Sources */,
 				28DB569E2982CA2300926BA5 /* DetailView.swift in Sources */,
+				2845F73D298302C300236405 /* LoginViewModel.swift in Sources */,
 				2838AE31297B1CB400320589 /* CreateEventView.swift in Sources */,
 				2807F07929799B1000752BDD /* MainView.swift in Sources */,
+				28B8212B298304E100BCFE83 /* Extensions.swift in Sources */,
 				28F04B6F296C9F2A00A27CAD /* AgendaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +314,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Agenda/Preview Content\"";
+				DEVELOPMENT_TEAM = HK6R3F5RZP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -326,7 +346,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Agenda/Preview Content\"";
+				DEVELOPMENT_TEAM = HK6R3F5RZP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

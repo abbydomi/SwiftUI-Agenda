@@ -17,9 +17,9 @@ struct CreateEventView: View {
     
     var body: some View {
         ZStack{
+            
             Color(uiColor: UIColor(named: "ColorSecondary")!)
             VStack{
-
                 Text("New Event")
                     .font(.system(size: 60, weight: .bold))
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
@@ -68,6 +68,7 @@ struct CreateEventView: View {
                 
                     
                 }
+                Spacer()
                 .alert(isPresented: $showAlert) {
                         Alert(
                             title: Text("Oops!"),

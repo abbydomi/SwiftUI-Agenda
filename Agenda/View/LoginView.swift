@@ -10,9 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State var email:String = ""
     @State var password:String=""
-    @State var showAlert:Bool=false
-    @State var errorContent:String = ""
-    @State var gotomain:Bool = false
+    @ObservedObject var vm = LoginViewModel()
     
     var body: some View {
         NavigationView {
@@ -44,7 +42,7 @@ struct LoginView: View {
                 .padding(40)
                 Spacer()
                 Button {
-                    login(email: email, password: password)
+                    vm.login(email: email, password: password)
                 } label: {
                     ZStack{
                         Rectangle()
@@ -56,14 +54,14 @@ struct LoginView: View {
                     }
                 }
                 .background(
-                    NavigationLink(destination: MainView(username: email), isActive: $gotomain){
+                    NavigationLink(destination: MainView(username: email), isActive: $vm.gotomain){
                         EmptyView()
                     }
                 )
-                .alert(isPresented: $showAlert) {
+                .alert(isPresented: $vm.showAlert) {
                         Alert(
                             title: Text("Error loging in"),
-                            message: Text(errorContent)
+                            message: Text(vm.errorContent)
                         )
                 }
                 
@@ -76,52 +74,11 @@ struct LoginView: View {
             }.background(Color(uiColor: UIColor(named: "ColorPrimary")!))
         }
         .accentColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
-            
-            
-    }
-    private func login(email: String, password: String){
-        let url = "https://superapi.netlify.app/api/login"
-        let dictionary = [
-            "user" : email,
-            "pass" : password
-        ]
-        
-        NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in
-            if let error = error {
-                onError(error.localizedDescription)
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                if response.statusCode == 200 {
-                    self.onSuccess()
-                } else {
-                    self.onError(error?.localizedDescription ?? "Request error")
-                }
-            }
-        }
-    }
-    func onSuccess(){
-        gotomain = true
-    }
-    func onError(_ error: String){
-        showAlert = true
-        errorContent = error
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-    }
-}
-
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
-        }
     }
 }

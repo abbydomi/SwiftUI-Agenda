@@ -79,6 +79,7 @@ struct MainView: View {
                                         VStack{
                                             HStack {
                                                 Text(event.name)
+                                                    .lineLimit(5)
                                                     .padding(10)
                                                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
                                                 Spacer()
