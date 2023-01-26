@@ -11,11 +11,8 @@ struct SignUpView: View {
     @State var email:String = ""
     @State var password:String=""
     @State var password2:String=""
-    
-    @State var showAlert:Bool=false
-    @State var errorContent:String = ""
-    
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var vm = SignUpViewModel()
     
     var body: some View {
         VStack {
@@ -57,7 +54,7 @@ struct SignUpView: View {
             .padding(40)
             Spacer()
             Button {
-                signup(email: email, password: password, password2: password2)
+                vm.signup(email: email, password: password, password2: password2)
             } label: {
                 ZStack{
                     Rectangle()
@@ -75,11 +72,16 @@ struct SignUpView: View {
                 Text("Already have an account? Sign in")
                     .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
             }
-            .alert(isPresented: $showAlert) {
+            .alert(isPresented: $vm.showAlert) {
                     Alert(
                         title: Text("Oops!"),
-                        message: Text(errorContent)
+                        message: Text(vm.errorContent)
                     )
+            }
+            .onChange(of: vm.dismiss) { newValue in
+                if newValue == true{
+                    dismiss()
+                }
             }
 
         }
@@ -87,53 +89,7 @@ struct SignUpView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    private func signup(email: String, password: String, password2: String){
-        //MARK: - Signup validation
-        if email.isEmpty{
-            showAlert = true
-            errorContent = "Username cannot be empty"
-            return
-        }
-        if password.isEmpty {
-            showAlert = true
-            errorContent = "Password cannot be empty"
-            return
-        }
-        if password.count <= 6 {
-            showAlert = true
-            errorContent = "Password cannot be shorter than 6 characters"
-            return
-        }
-        if password != password2 {
-            showAlert = true
-            errorContent = "Passwords do not match"
-            return
-        }
-        //MARK: - Sign up request
-        let url = "https://superapi.netlify.app/api/register"
-        let dictionary = [
-            "user" : email,
-            "pass" : password
-        ]
-        NetworkHelper.shared.requestProvider(url: url, type: .POST, params: dictionary) { data, response, error in
-            if let error = error {
-                onError(error.localizedDescription)
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                if response.statusCode == 200 {
-                    self.onSuccess()
-                } else {
-                    self.onError(error?.localizedDescription ?? "Request error")
-                }
-            }
-        }
-    }
-    func onSuccess(){
-        dismiss()
-    }
-    func onError(_ error: String){
-        showAlert = true
-        errorContent = error
-    }
+    
 }
 
 struct SignUpView_Previews: PreviewProvider {
