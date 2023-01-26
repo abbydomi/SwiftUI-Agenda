@@ -20,7 +20,7 @@ class NetworkHelper {
     
     //MARK: - Functions
     
-    func requestAPI(request: URLRequest, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void){
+    private func requestAPI(request: URLRequest, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void){
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             completion(data, response, error)
         }
@@ -38,6 +38,10 @@ class NetworkHelper {
             request.httpBody = data
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        requestAPI(request: request) { data, response, error in completion(data, response, error)}
+        requestAPI(request: request) { data, response, error in
+            DispatchQueue.main.async {
+                completion(data, response, error)
+            }
+        }
     }
 }
