@@ -12,12 +12,12 @@ struct DetailView: View {
     @State var fullDate:String
     var body: some View {
         ZStack{
-            Color(uiColor: UIColor(named: "ColorSecondary")!)
+            Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue)
             VStack{
                 Spacer()
                 Text(eventTitle)
                     .font(.system(size: 60, weight: .bold))
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                     .padding(.horizontal, 10)
                     .padding(.vertical, 50)
                     .minimumScaleFactor(0.4)
@@ -32,7 +32,7 @@ struct DetailView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                 Text(fullDate)
                     .font(.system(size: 24))
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                 Spacer()
             }
         }.ignoresSafeArea()

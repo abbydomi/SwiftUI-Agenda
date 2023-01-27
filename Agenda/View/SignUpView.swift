@@ -18,7 +18,7 @@ struct SignUpView: View {
         VStack {
             Text("Sign up")
                 .font(.system(size: 60, weight: .bold))
-                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                 .padding(20)
             Spacer()
             VStack(spacing: 20) {
@@ -26,30 +26,30 @@ struct SignUpView: View {
                     .padding(10)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(TextInputAutocapitalization.never)
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                     .placeholder(when: email.isEmpty) {
                         Text("Username")
-                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                             .padding(10)
                     }
                 SecureField("Password", text: $password)
                     .padding(10)
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                     .placeholder(when: password.isEmpty) {
                         Text("Password")
-                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                             .padding(10)
                     }
                 SecureField("Repeat password", text: $password2)
                     .padding(10)
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                     .placeholder(when: password2.isEmpty) {
                         Text("Repeat password")
-                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                             .padding(10)
                     }
             }
-            .background(Color(uiColor: UIColor(named: "ColorMonoLight")!))
+            .background(Color(uiColor: UIColor(named: "ColorMonoLight") ?? UIColor.white))
             .cornerRadius(18)
             .padding(40)
             Spacer()
@@ -60,9 +60,9 @@ struct SignUpView: View {
                     Rectangle()
                         .frame(width: 200, height: 40)
                         .cornerRadius(20)
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                     Text("Sign up")
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                 }
             }
             Spacer()
@@ -70,7 +70,7 @@ struct SignUpView: View {
                 dismiss()
             } label: {
                 Text("Already have an account? Sign in")
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
             }
             .alert(isPresented: $vm.showAlert) {
                 Alert(
@@ -85,7 +85,7 @@ struct SignUpView: View {
             }
             
         }
-        .background(Color(uiColor: UIColor(named: "ColorPrimary")!))
+        .background(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
         .navigationBarBackButtonHidden(true)
     }
 }

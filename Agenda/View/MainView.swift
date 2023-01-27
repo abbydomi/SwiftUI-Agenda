@@ -14,7 +14,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack{
-            Color(uiColor: UIColor(named: "ColorPrimary")!)
+            Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow)
             VStack{
                 Spacer()
                 HStack{
@@ -28,7 +28,7 @@ struct MainView: View {
                     .frame(width: 100, height: 100)
                     Text(username+"'s Agenda")
                         .font(.system(size: 60, weight: .bold))
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         .padding(.trailing, 10)
                         .minimumScaleFactor(0.4)
                         .lineLimit(1)
@@ -48,19 +48,17 @@ struct MainView: View {
                                                 Text(event.name)
                                                     .lineLimit(5)
                                                     .padding(10)
-                                                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                                                 Spacer()
                                                 Text(vm.getDate(event: event))
                                                     .padding(10)
-                                                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                                    .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                                             }
                                             Rectangle()
                                                 .frame(width: UIScreen.main.bounds.width, height: 1)
-                                                .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                                                .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                                         }
                                     }
-                                    
-                                    
                                 }
                             }
                         }
@@ -80,7 +78,7 @@ struct MainView: View {
                                             .frame(width: 80, height: 80)
                                         Image(systemName: "plus.circle.fill")
                                             .font(.system(size: 85))
-                                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                                     }
                                     
                                 }

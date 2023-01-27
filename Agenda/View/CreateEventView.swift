@@ -17,11 +17,11 @@ struct CreateEventView: View {
     
     var body: some View {
         ZStack{
-            Color(uiColor: UIColor(named: "ColorSecondary")!)
+            Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue)
             VStack{
                 Text("New Event")
                     .font(.system(size: 60, weight: .bold))
-                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                     .padding(20)
                     ZStack{
                         Rectangle()
@@ -34,20 +34,20 @@ struct CreateEventView: View {
                             .cornerRadius(20)
                             .padding(.horizontal, 20)
                             .colorInvert()
-                            .colorMultiply(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .colorMultiply(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                     }
  
                 ZStack{
                     Rectangle()
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorMonoLight")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorMonoLight") ?? UIColor.white))
                         .frame(height: 50)
                         .cornerRadius(20)
                     TextField("Event name:", text: $eventName)
                         .placeholder(when: eventName.isEmpty, placeholder: {
                             Text("Event name:")
-                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         })
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         .frame(height: 50)
                         .background(Color.white)
                         .cornerRadius(20)
@@ -60,9 +60,9 @@ struct CreateEventView: View {
                     vm.addEvent(evName: eventName, evDate: vm.dateToInt(date: datePicked))
                 } label: {
                     Text("Add event")
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         .padding(20)
-                        .background(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                        .background(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                         .cornerRadius(12)
                 }
                 Spacer()

@@ -32,12 +32,12 @@ struct LoginView: View {
                     SecureField("Password", text: $password)
                         .placeholder(when: password.isEmpty, placeholder: {
                             Text("Password")
-                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.yellow))
                         })
                         .padding(10)
                 }
-                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
-                .background(Color(uiColor: UIColor(named: "ColorMonoLight")!))
+                .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.yellow))
+                .background(Color(uiColor: UIColor(named: "ColorMonoLight") ?? UIColor.white))
                 .cornerRadius(18)
                 .padding(40)
                 Spacer()
@@ -48,9 +48,9 @@ struct LoginView: View {
                         Rectangle()
                             .frame(width: 200, height: 40)
                             .cornerRadius(20)
-                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                         Text("Sign in")
-                            .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
                     }
                 }
                 .background(
@@ -68,12 +68,12 @@ struct LoginView: View {
                 Spacer()
                 NavigationLink(destination: SignUpView()) {
                     Text("Don't have an account? Sign up")
-                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary")!))
+                        .foregroundColor(Color(uiColor: UIColor(named: "ColorSecondary") ?? UIColor.blue))
                 }
                 
-            }.background(Color(uiColor: UIColor(named: "ColorPrimary")!))
+            }.background(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
         }
-        .accentColor(Color(uiColor: UIColor(named: "ColorPrimary")!))
+        .accentColor(Color(uiColor: UIColor(named: "ColorPrimary") ?? UIColor.yellow))
     }
 }
 
